@@ -7,20 +7,21 @@
             Console.WriteLine("Nr de elemente din serie: ");
             int n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Introdu numerele seirie: ");
-            double[] v = new double[n]; 
+            Console.WriteLine("Introdu elementele: ");
+            double element;
+            double sumaInvers = 0;
             for(int i = 0; i < n; i++)
             {
-                v[i] = double.Parse(Console.ReadLine());   
+                element = double.Parse(Console.ReadLine());
+                if(element == 0)
+                {
+                    Console.WriteLine("Elementul nu poate fi 0");
+                    i--;
+                    continue;
+                }
+                sumaInvers += 1 / element;
             }
-
-            double sumaInverselor = 0;
-            for(int i = 0;i < n; i++)
-            {
-                sumaInverselor += 1 / v[i];
-            }
-
-            Console.WriteLine($"Suma inverselor fiecarui numar din secventa este {sumaInverselor}");
+            Console.WriteLine($"Suma inverselor elementelor din vector este {sumaInvers:F2}");
         }
     }
 }
